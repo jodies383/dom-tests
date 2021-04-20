@@ -15,6 +15,9 @@ describe('The Calculate Bill Function', function () {
         calculate.calBill('call, call, call, sms, sms');
         assert.equal(calculate.myBill(), 9.75);
     });
+
+describe('Warning & Critical Levels', function () {
+
     it('should return warning since the bill total is over R20', function () {
         let calculate = calculateBillEvent();
         calculate.calBill('call, call, call, call, call, call, call, call');
@@ -29,4 +32,5 @@ describe('The Calculate Bill Function', function () {
         
         assert.equal("critical", calculate.levels());
     });
+});
 });
