@@ -23,7 +23,7 @@ describe('The Text Bill Function', function () {
     });
 
     describe('Warning & Critical Level', function () {
-        it('should return a class name of "warning" if total is over R30', function () {
+        it('should return a class name of "warning" since total is over R30', function () {
             let calcText = textBill();
             calcText.textBillTotal('sms');
             calcText.textBillTotal('call');
@@ -39,6 +39,30 @@ describe('The Text Bill Function', function () {
             calcText.textBillTotal('call');
             calcText.textBillTotal('sms');
             assert.equal("warning", calcText.textBillLevels());
+        });
+        it('should return a class name of "critical" since total is over R50', function () {
+            let calcText = textBill();
+            calcText.textBillTotal('sms');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('call');
+            calcText.textBillTotal('sms');
+            assert.equal("critical", calcText.textBillLevels());
         });
     });
 });
